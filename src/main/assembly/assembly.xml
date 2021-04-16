@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+    <id>release</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <!--打包后的配置文件应包含项目的哪些配置文件，这里有一个springboot的properties文件和log配置文件  directory标签里的是项目里的文件，outputDirectory标签里的是打包后文件的包目录-->
+    <fileSets>
+
+        <!--将项目配置文件打包进压缩包-->
+        <fileSet>
+            <filtered>true</filtered>
+            <directory>src/main/resources</directory>
+            <outputDirectory>config</outputDirectory>
+            <includes>
+                <include>*.properties</include>
+                <include>*.xml</include>
+            </includes>
+        </fileSet>
+
+        <!--将该工程打包进压缩包-->
+        <fileSet>
+            <includes>
+                <include>${basedir}/lib/distinctionLog-1.0-SNAPSHOT.jar</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+
+        <!--将项目里scripts包里的shell运行脚本文件，打包后放在bin目录下-->
+        <fileSet>
+            <directory>/scripts</directory>
+            <outputDirectory>bin</outputDirectory>
+            <includes>
+                <include>start.sh</include>
+                <include>stop.sh</include>
+            </includes>
+            <fileMode>0755</fileMode>
+            <lineEnding>unix</lineEnding>
+        </fileSet>
+    </fileSets>
+</assembly>

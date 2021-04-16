@@ -1,0 +1,17 @@
+#项目端口号
+server:
+  port: 10087
+
+# pulsar配置
+pulsar:
+  # pulsar服务端地址
+#  url: pulsar://10.21.171.58:6650
+#集群配置
+  url: pulsar://10.21.171.58:6650,10.21.171.59:6650,10.21.171.60:6650
+#  topic: persistent://my-tenant/my-namespace/flume-udp-gather-topic
+  topic: persistent://4a/audit/original_qa_nfv_log
+  # 消费者
+  subscription: consumer20210413
+
+areaPreName: BJ_,TJ_,HE_,SX_,NM_,LN_,JL_,HL_,SH_,JS_,ZJ_,AH_,FJ_,JX_,SD_,HA_,NJ_,HB_,HN_,GD_,HI_,GX_,CQ_,SC_,GZ_,YN_,XZ_,SN_,GS_,QH_,NX_,XJ_,HQ_
+
