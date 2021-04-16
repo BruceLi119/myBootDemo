@@ -25,7 +25,7 @@
             <includes>
                 <include>${basedir}/lib/distinctionLog-1.0-SNAPSHOT.jar</include>
             </includes>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>${file.separator}</outputDirectory>
         </fileSet>
 
         <!--将项目里scripts包里的shell运行脚本文件，打包后放在bin目录下-->

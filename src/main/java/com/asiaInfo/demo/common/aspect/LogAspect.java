@@ -1,12 +1,9 @@
-package com.asiaInfo.demo.config;
+package com.asiaInfo.demo.common.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
 import org.aspectj.lang.annotation.*;
-
-import java.util.Date;
 
 /**
  * @description: spring的aop
@@ -79,13 +76,13 @@ public class LogAspect {
 
 
 
-    @Pointcut("@annotation(LogAnnotation)")
+    @Pointcut("@annotation(com.asiaInfo.demo.common.aspect.LogAnnotation)")
     public void sendLog() {
     }
 
     @Before("sendLog() && @annotation(logAnnotation)")
-    public void doAfterReturning(JoinPoint joinPoint,LogAnnotation logAnnotation) {
-        String methodName = logAnnotation.prefixMark();
+    public void doAfterReturning(JoinPoint joinPoint, LogAnnotation logAnnotation) {
+        String methodName = logAnnotation.methodName();
         log.info("进入：{} 方法！",methodName);
     }
 
@@ -96,7 +93,7 @@ public class LogAspect {
         for (Object arg : args) {
             argsStr.append(arg.toString()).append(',');
         }
-        String methodName = logAnnotation.prefixMark();
+        String methodName = logAnnotation.methodName();
 
         if (ret != null) {
             log.info("方法：{}执行完毕，参数：{}，返回值：{}",methodName,argsStr.toString(),ret);

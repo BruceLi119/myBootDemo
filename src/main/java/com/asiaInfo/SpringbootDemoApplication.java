@@ -10,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @author: li.shuGuang
  * @dateTime: 2021/4/9 17:06
  */
-@ComponentScan(basePackages = "com.asiaInfo.demo.*")
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class SpringbootDemoApplication  {
     public static void main(String[] args) {
